@@ -11,6 +11,8 @@ import           Foreign.Ptr                    ( Ptr )
 import qualified System.Posix.IO               as IO
 import           System.Posix.Types             ( Fd(..) )
 import           System.Posix.Types             ( ByteCount )
+import           System.Posix.Fcntl             ( fileAdvise )
+import           System.Posix.Fcntl             ( Advice(..) )
 
 chunkSize :: ByteCount
 chunkSize = 128 * 1024
@@ -25,6 +27,7 @@ encodeStream fdIn fdOut buffer = do
 main :: IO ()
 main = do
   fdIn   <- fmap listToMaybe E.getArgs >>= getHandle
+  fileAdvise fdIn 0 0 AdviceSequential
   buffer <- Buf.newByteBuffer (fromIntegral chunkSize) Buf.WriteBuffer
   Buf.withBuffer buffer $ encodeStream fdIn IO.stdOutput
  where
