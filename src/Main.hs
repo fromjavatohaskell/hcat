@@ -26,7 +26,7 @@ encodeStream fdIn fdOut buffer = do
 
 main :: IO ()
 main = do
-  fdIn   <- fmap listToMaybe E.getArgs >>= getHandle
+  fdIn <- fmap listToMaybe E.getArgs >>= getHandle
   fileAdvise fdIn 0 0 AdviceSequential
   buffer <- Buf.newByteBuffer (fromIntegral chunkSize) Buf.WriteBuffer
   Buf.withBuffer buffer $ encodeStream fdIn IO.stdOutput
