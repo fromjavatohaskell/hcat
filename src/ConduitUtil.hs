@@ -1,5 +1,6 @@
 -- modified sourceHandle function from conduit library
 -- https://hackage.haskell.org/package/conduit
+-- https://hackage.haskell.org/package/conduit-1.3.1.1/docs/src/Data.Conduit.Combinators.html#sourceHandle
 
 -- default chunk size increased to 128K to decrease number of system calls
 -- and improve overall performance of application
