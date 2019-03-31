@@ -25,7 +25,9 @@ executable hcat
   -- ghc-options: -threaded -rtsopts -O2 -Wall -Wextra -prof -fforce-recomp -ddump-simpl -dsuppress-all -dno-suppress-type-signatures -ddump-asm -ddump-cmm
   ghc-options: -threaded -rtsopts -O2 -Wall -Wextra -fforce-recomp -prof
   build-depends:
-      base, unix
+     { base
+     , unix
+     }
   default-language: Haskell2010
 
 executable hcat2
@@ -35,5 +37,9 @@ executable hcat2
   -- ghc-options: -threaded -rtsopts -O2 -Wall -Wextra -prof -fforce-recomp -ddump-simpl -dsuppress-all -dno-suppress-type-signatures -ddump-asm -ddump-cmm
   ghc-options: -threaded -rtsopts -O2 -Wall -Wextra -fforce-recomp -prof
   build-depends:
-      base, conduit, bytestring
+    { base
+    , conduit
+    , bytestring
+    , ConduitUtil
+    }
   default-language: Haskell2010
