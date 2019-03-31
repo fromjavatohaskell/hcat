@@ -23,7 +23,17 @@ executable hcat
   hs-source-dirs:
       src
   -- ghc-options: -threaded -rtsopts -O2 -Wall -Wextra -prof -fforce-recomp -ddump-simpl -dsuppress-all -dno-suppress-type-signatures -ddump-asm -ddump-cmm
-  ghc-options: -rtsopts -O2 -Wall -Wextra -fforce-recomp -prof
+  ghc-options: -threaded -rtsopts -O2 -Wall -Wextra -fforce-recomp -prof
   build-depends:
       base, unix
+  default-language: Haskell2010
+
+executable hcat2
+  main-is: MainConduit.hs
+  hs-source-dirs:
+      src
+  -- ghc-options: -threaded -rtsopts -O2 -Wall -Wextra -prof -fforce-recomp -ddump-simpl -dsuppress-all -dno-suppress-type-signatures -ddump-asm -ddump-cmm
+  ghc-options: -threaded -rtsopts -O2 -Wall -Wextra -fforce-recomp -prof
+  build-depends:
+      base, conduit, bytestring
   default-language: Haskell2010
