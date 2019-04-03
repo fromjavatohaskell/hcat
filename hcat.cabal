@@ -58,6 +58,7 @@ executable hcat2
   build-depends:
     { base
     , conduit
+    , conduit-extra
     , bytestring
     , hcat
     }
